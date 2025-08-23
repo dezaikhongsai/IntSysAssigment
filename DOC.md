@@ -1,151 +1,150 @@
-# ASSIGNMENT 1 – PHẦN LÝ THUYẾT (1.1 → 1.6)
+# ASSIGNMENT 1 – THEORY SECTION
 
-**Môn:** Intelligence System Development – **Học kỳ I/2025**
-**Sinh viên:** \[Điền tên] – **Lớp/Nhóm:** \[Điền lớp/nhóm]
+**Course:** Intelligence System Development – **Semester I/2025**
+**Student:** \[Your name] – **Class/Team:** \[Fill in]
 
-> Lưu ý: Nội dung tóm lược và phân tích dựa trên kiến thức nền tảng về Hệ thống thông minh/AI và các tài liệu được gợi ý trong đề bài (Forbes, Apple Siri, Simplilearn, Edureka, v.v.). Với mục 1.5, vì không truy cập trực tiếp Figure 7 của bài báo arXiv (2009.09083) trong điều kiện offline, em trình bày **bản mô phỏng/diễn giải lại** theo cấu trúc phổ biến: lĩnh vực ứng dụng ↔ kỹ thuật AI, để phù hợp yêu cầu trình bày ứng dụng qua sơ đồ/ma trận.
-
----
-
-## 1.1. Investigate, discover and write (3 trang)
-
-### 1) 10 ví dụ tiêu biểu về AI trong thực tế
-
-1. **Trợ lý ảo & nhận dạng giọng nói**: Siri, Google Assistant nhận lệnh thoại, chuyển giọng nói thành văn bản, điều khiển thiết bị.
-2. **Hệ khuyến nghị**: Netflix/YouTube/Spotify/Amazon đề xuất nội dung/sản phẩm dựa trên lịch sử tương tác (CF, deep learning).
-3. **Phát hiện gian lận**: Ngân hàng và cổng thanh toán phát hiện giao dịch bất thường bằng học máy giám sát/không giám sát.
-4. **Thị giác máy tính trong y tế**: Phát hiện khối u trên ảnh X‑quang/CT/MRI (CNN).
-5. **Xe tự hành & ADAS**: Nhận biết làn đường, vật cản, người đi bộ; lập kế hoạch đường đi (CV + RL).
-6. **Chatbot chăm sóc khách hàng**: NLP + LLM trả lời tự động 24/7, định tuyến case.
-7. **Dịch máy & tóm tắt văn bản**: Transformer/LLM dịch nhanh đa ngôn ngữ, tóm tắt báo cáo dài.
-8. **Nhà thông minh/IoT**: Điều chỉnh nhiệt độ/chiếu sáng tối ưu theo thói quen người dùng (học tăng cường + dự báo chuỗi thời gian).
-9. **Bảo mật & giám sát**: Phát hiện xâm nhập mạng (IDS) và bất thường log; nhận diện khuôn mặt trong kiểm soát ra vào.
-10. **Bảo trì dự đoán trong công nghiệp**: Phân tích rung/âm/điện năng để dự đoán hỏng hóc thiết bị, giảm downtime.
-
-### 2) Chuỗi giá trị dữ liệu/AI (Data → Value)
-
-- **Thu thập & gắn nhãn** (sensor, log, clickstream) → **Làm sạch/tiền xử lý** (lọc nhiễu, chuẩn hóa) → **Đặc trưng** (feature engineering, embedding) → **Huấn luyện/điều chỉnh** (supervised/unsupervised/RL) → **Triển khai** (API, edge) → **Giám sát** (drift, fairness, an toàn) → **Vòng lặp cải tiến**.
-- **Thách thức**: chất lượng dữ liệu, thiên lệch (bias), quyền riêng tư, khả năng giải thích (XAI), chi phí hạ tầng, an toàn khi triển khai trong môi trường vật lý (robot/xe).
-
-### 3) Chỉ số & thực hành tốt
-
-- **Chỉ số mô hình**: Accuracy/F1/AUC (phân loại), RMSE/MAE (hồi quy), mAP (CV), BLEU/ROUGE (NLP).
-- **MLOps**: versioning dữ liệu/mô hình, pipeline CI/CD, monitoring drift, kiểm thử an toàn (adversarial).
-- **Đạo đức & tuân thủ**: minh bạch, công bằng, bảo vệ dữ liệu cá nhân.
+> Note: This write‑up summarizes and analyzes foundational knowledge on Intelligent Systems/AI using the sources listed in the brief (Forbes, Apple Siri, Simplilearn, Edureka, etc.). For **1.5**, because I could not open Figure 7 of arXiv:2009.09083 in the current offline environment, I provide a **faithful reconstruction/interpretation** of a typical “domain ↔ AI technique” matrix so that the section remains useful and presentation‑ready. I will align the labels to the original figure when direct access is available.
 
 ---
 
-## 1.2. Intelligent System là gì? Định nghĩa ấn tượng nhất & ví dụ (3 trang)
+## 1.1. Investigate, discover and write (≈3 pages)
 
-### 1) Tổng hợp định nghĩa
+### 1) Ten representative, real‑world AI applications
 
-- **Định nghĩa khái quát**: _Hệ thống thông minh_ là **hệ thống phần mềm/ phần cứng** có khả năng **nhận thức (perception)**, **lý luận/quyết định (reasoning/decision‑making)** và **học hỏi (learning)** từ dữ liệu & tương tác môi trường để **đạt mục tiêu** với hiệu quả vượt trội so với thủ tục cố định.
-- **Các góc nhìn phổ biến**:
+1. **Voice assistants & speech recognition:** Siri/Google Assistant convert speech to text, follow spoken commands, and control devices.
+2. **Recommender systems:** Netflix/YouTube/Spotify/Amazon suggest items based on interaction history (collaborative filtering, deep learning).
+3. **Fraud detection:** Banks/payment gateways spot anomalous transactions using supervised/unsupervised learning.
+4. **Medical imaging:** Detecting tumors in X‑ray/CT/MRI with CNN‑ or ViT‑based models.
+5. **Self‑driving & ADAS:** Lane/obstacle/pedestrian detection; motion planning (computer vision + reinforcement learning).
+6. **Customer‑service chatbots:** NLP/LLM for 24/7 auto responses and case routing.
+7. **Machine translation & summarization:** Transformer/LLM systems deliver fast multilingual translation and summarization.
+8. **Smart home/IoT:** Adaptive temperature/lighting via RL and time‑series forecasting.
+9. **Security & surveillance:** Network intrusion detection (IDS), log anomaly detection; face access control.
+10. **Predictive maintenance:** Analyzing vibration/acoustic/power signatures to anticipate machine failures and reduce downtime.
 
-  - **Theo chức năng**: Cảm nhận → Hiểu → Lập kế hoạch → Hành động → Học (vòng kín).
-  - **Theo tác tử (agent)**: tác tử thông minh tối đa hóa **hàm lợi ích** dựa trên trạng thái/quan sát.
-  - **Theo kỹ thuật**: dùng **kiến thức + suy diễn** (KBS) / **học máy** / **lai**.
+### 2) The data/AI value chain
 
-### 2) Định nghĩa ấn tượng nhất (lý do)
+**Collect/label** (sensors, logs, clickstream) → **Clean/preprocess** (denoise, normalize) → **Feature/representation** (feature engineering, embeddings) → **Train/tune** (supervised/unsupervised/RL) → **Deploy** (APIs, edge) → **Monitor** (drift, fairness, safety) → **Improve** (continuous loop).
+**Key challenges:** data quality, bias/fairness, privacy/security, explainability (XAI), infra cost, and real‑world safety (robotics/vehicles).
 
-> **“Intelligent system là tác tử tự trị có khả năng cảm nhận môi trường, xây dựng mô hình nội tại, học hỏi để cập nhật mô hình, và hành động nhằm tối đa hóa mục tiêu trong điều kiện không chắc chắn.”** > **Lý do**: ngắn gọn, bao quát 4 đặc tính cốt lõi (nhận thức–mô hình hóa–học–hành động), nhấn mạnh **bất định** (uncertainty) – tình huống thật.
+### 3) Metrics & good practices
 
-### 3) Ví dụ hệ thống thông minh
-
-- **Phần mềm**: Hệ khuyến nghị, chatbot đa ngôn ngữ, hệ hỗ trợ chẩn đoán y khoa (CDSS).
-- **Cyber‑Physical**: robot di động kho hàng (SLAM + RL), UAV giám sát rừng (CV + path planning).
-- **Edge/IoT**: camera thông minh phát hiện ngã đột quỵ, đồng hồ sức khỏe dự báo rối loạn nhịp.
-- **Doanh nghiệp**: tối ưu chuỗi cung ứng (forecast + MILP), phát hiện gian lận giao dịch (anomaly/graph ML).
-
----
-
-## 1.3. Ứng dụng hệ thống thông minh: lĩnh vực & kỹ thuật AI (3 trang)
-
-### 1) Lĩnh vực chính
-
-- **Y tế** (chẩn đoán hình ảnh, phân loại bệnh, dự báo tái nhập viện, trợ lý bệnh án).
-- **Tài chính** (phát hiện gian lận, xếp hạng tín dụng, định giá rủi ro, giao dịch thuật toán).
-- **Sản xuất/IIoT** (bảo trì dự đoán, thị giác kiểm lỗi, tối ưu lịch sản xuất).
-- **Giao thông** (ITS, định tuyến, quản lý tín hiệu, ADAS/xe tự hành).
-- **Năng lượng** (dự báo phụ tải/giá, tối ưu vận hành lưới, phát hiện sự cố).
-- **Bán lẻ/Marketing** (khuyến nghị, phân khúc khách hàng, định giá động).
-- **An ninh mạng** (IDS, phát hiện botnet, phân tích log).
-- **Giáo dục** (tutor thông minh, đánh giá thích ứng, proctoring).
-- **Nông nghiệp** (dự báo năng suất, nhận diện sâu bệnh, drone phun thuốc chính xác).
-- **Chính phủ/Smart city** (quan trắc môi trường, phân tích lưu lượng, dịch vụ công số).
-
-### 2) Kỹ thuật AI tiêu biểu theo bài toán
-
-- **Thị giác máy tính (CV)**: CNN/ViT cho nhận dạng, phát hiện, phân đoạn.
-- **Xử lý ngôn ngữ (NLP/LLM)**: Transformer, fine‑tuning/PEFT, RAG cho hỏi‑đáp, tóm tắt.
-- **Học có giám sát**: hồi quy, cây quyết định, SVM, gradient boosting cho dự báo/chấm điểm.
-- **Học không giám sát**: clustering (K‑means, DBSCAN), PCA/UMAP, phát hiện bất thường.
-- **Học tăng cường (RL)**: kiểm soát/điều khiển, tối ưu chính sách.
-- **Tri thức & suy diễn**: ontology, knowledge graph, logic.
-- **Tối ưu/OR**: quy hoạch tuyến tính, ràng buộc, meta‑heuristics (GA/PSO) cho lịch/định tuyến.
-- **Chuỗi thời gian**: ARIMA/Prophet/RNN/Transformer thời gian cho dự báo.
-- **XAI & an toàn**: SHAP/LIME, kiểm soát drift, fairness.
+- **Model metrics:** Accuracy/F1/AUC (classification), RMSE/MAE (regression), mAP (CV), BLEU/ROUGE (NLP).
+- **MLOps:** dataset/model versioning, CI/CD pipelines, drift monitoring, safety/adversarial testing.
+- **Ethics & compliance:** transparency, fairness, privacy by design.
 
 ---
 
-## 1.4. Các loại hệ thống thông minh (3 trang)
+## 1.2. What is an Intelligent System? Most impressive definition & examples (≈3 pages)
 
-### A) Phân loại theo **mức năng lực** (thường thấy trong Simplilearn/Edureka)
+### 1) Blended definition
 
-1. **Reactive Machines**: chỉ phản ứng hiện tại, không nhớ quá khứ (ví dụ: Deep Blue).
-2. **Limited Memory**: dùng dữ liệu gần đây để quyết định (đa số hệ thống ML hiện nay).
-3. **Theory of Mind** _(mục tiêu nghiên cứu)_: mô hình hóa trạng thái tinh thần người khác.
-4. **Self‑aware** _(giả thuyết xa)_: có ý thức về bản thân.
+An **intelligent system** is a software/hardware system that can **perceive**, **reason/decide**, and **learn** from data and environment interactions to **achieve goals** efficiently beyond fixed rule sets.
 
-### B) Phân loại theo **phạm vi trí tuệ**
+Common perspectives:
 
-- **ANI (Narrow/Weak AI)**: làm tốt một nhiệm vụ hẹp (hệ khuyến nghị, phân loại ảnh).
-- **AGI (General AI)**: năng lực rộng như người (đang nghiên cứu).
-- **ASI (Superintelligence)**: vượt xa con người (mang tính giả thuyết).
+- **Functional loop:** Perceive → Understand → Plan → Act → Learn (closed feedback).
+- **Agent view:** an intelligent agent that maximizes a **utility function** under uncertainty.
+- **Technique view:** knowledge‑based reasoning, machine learning, or **hybrid** approaches.
 
-### C) Phân loại theo **kiến trúc/chiến lược tác tử**
+### 2) The most compelling definition (and why)
 
-- **Reactive** vs **Deliberative (lập kế hoạch)** vs **Hybrid**.
-- **Rule‑based/KBS** (hệ luật + suy diễn) vs **Learning‑based** (ML/DL) vs **Neuro‑symbolic** (lai).
-- **Centralized** vs **Multi‑Agent** (MAS: phối hợp/đấu giá/đồng thuận).
-- **On‑cloud** vs **Edge/On‑device**.
+> **“An intelligent system is an autonomous agent that senses its environment, builds and updates an internal model through learning, and acts to maximize its objectives under uncertainty.”** > **Why:** concise, covers the four pillars (perception–modeling–learning–action), and emphasizes **uncertainty**, which dominates real‑world settings.
 
-**Nhận xét**: Hệ thống thực tế thường **lai**: perception (DL) + planning/optimization (OR) + rule/constraint để bảo đảm an toàn/tuân thủ.
+### 3) Example intelligent systems
 
----
-
-## 1.5. Ứng dụng hệ thống thông minh **qua Figure 7** của arXiv:2009.09083 (3 trang)
-
-> Do không xem được trực tiếp Figure 7 trong điều kiện offline, em trình bày **ma trận ứng dụng–kỹ thuật** mô phỏng tinh thần tổng quan: mỗi ô gợi ý kỹ thuật AI phù hợp cho một lĩnh vực. Khi có hình gốc, em sẽ thay thế/đối chiếu lại cho khớp chú thích.
-
-### 1) Ma trận mô phỏng lĩnh vực ↔ kỹ thuật
-
-| Lĩnh vực    | Nhận thức (CV/ASR)                  | NLP/LLM                       | Dự báo (TS)          | Tối ưu/OR              | RL/Control                        | KBS/Graph                |
-| ----------- | ----------------------------------- | ----------------------------- | -------------------- | ---------------------- | --------------------------------- | ------------------------ |
-| Y tế        | Phân đoạn ảnh, phát hiện tổn thương | Tóm tắt hồ sơ, trích thực thể | Dự báo tái nhập viện | Lập lịch phòng mổ      | Chính sách dùng thuốc cá nhân hóa | Ontology y khoa          |
-| Tài chính   | OCR chứng từ, phát hiện giả mạo     | Phân tích văn bản tin tức     | Dự báo rủi ro/giá    | Tối ưu danh mục        | RL cho giao dịch                  | Đồ thị quan hệ gian lận  |
-| Sản xuất    | Kiểm lỗi thị giác                   | QA bằng ngôn ngữ tự nhiên     | Bảo trì dự đoán      | Lịch sản xuất          | Tối ưu tham số                    | Tri thức quy trình       |
-| Giao thông  | Nhận diện vật thể                   | Giao tiếp V2X ngôn ngữ        | Dự báo lưu lượng     | Định tuyến đa mục tiêu | Điều khiển tín hiệu               | Bản đồ tri thức lộ trình |
-| Năng lượng  | Nhận diện sự cố                     | Tóm tắt sự cố                 | Dự báo phụ tải/giá   | Tối ưu vận hành        | Điều khiển lưới                   | Tri thức thiết bị        |
-| Bán lẻ      | Nhận diện sản phẩm                  | Chatbot                       | Dự báo nhu cầu       | Tối ưu tồn kho         | Định giá động                     | KG sản phẩm              |
-| Nông nghiệp | Phát hiện sâu bệnh                  | Nhật ký nông vụ               | Dự báo mùa vụ        | Tối ưu tưới/bón        | Robot nông nghiệp                 | Tri thức cây trồng       |
-
-### 2) Quy trình triển khai tham chiếu (theo Fig. tổng quan)
-
-- **Tầng cảm biến/dữ liệu** → **Xử lý & học** (DL/ML) → **Lập kế hoạch/tối ưu** → **Hành động** (robotics/actuator) → **Giám sát an toàn/XAI**.
-- **Chỉ số & quản trị**: chất lượng dữ liệu, audit, bảo mật, tuân thủ.
-
-> _Khi có Figure 7 gốc, em sẽ cập nhật: tên lớp/nhóm kỹ thuật, chú thích, và ví dụ minh họa đúng như hình._
+- **Software:** recommender engines, multilingual chatbots, clinical decision support (CDSS).
+- **Cyber‑physical:** warehouse mobile robots (SLAM + RL), UAVs for forest monitoring (CV + path planning).
+- **Edge/IoT:** fall‑detection cameras, health wearables predicting arrhythmia.
+- **Enterprise:** supply‑chain optimization (forecast + MILP), transaction‑fraud detection (anomaly/graph ML).
 
 ---
 
-## 1.6. Numpy, Pandas, Matplotlib, Scikit‑learn – tính năng, mục đích & ví dụ
+## 1.3. Applications of intelligent systems: domains & AI techniques (≈3 pages)
+
+### 1) Major domains
+
+- **Healthcare:** imaging, disease classification, readmission forecasting, EMR assistants.
+- **Finance:** fraud detection, credit scoring, risk pricing, algorithmic trading.
+- **Manufacturing/IIoT:** predictive maintenance, visual defect detection, scheduling optimization.
+- **Transportation:** ITS, routing, signal control, ADAS/autonomy.
+- **Energy:** load/price forecasting, grid optimization, fault diagnosis.
+- **Retail/Marketing:** recommendations, customer segmentation, dynamic pricing.
+- **Cybersecurity:** IDS, botnet detection, log analytics.
+- **Education:** intelligent tutoring, adaptive testing, proctoring.
+- **Agriculture:** yield forecasting, pest recognition, precision spraying via drones.
+- **Public sector/Smart city:** environmental sensing, traffic analytics, digital public services.
+
+### 2) Representative AI techniques by task type
+
+- **Computer Vision (CV):** CNN/ViT for recognition, detection, segmentation.
+- **NLP/LLM:** Transformers, fine‑tuning/PEFT, RAG for QA and summarization.
+- **Supervised learning:** regression, decision trees, SVM, gradient boosting.
+- **Unsupervised:** clustering (K‑means/DBSCAN), PCA/UMAP, anomaly detection.
+- **Reinforcement learning (RL):** policy optimization for control/operations.
+- **Knowledge & reasoning:** ontologies, knowledge graphs, logical inference.
+- **Optimization/OR:** linear programming, constraint solving, meta‑heuristics (GA/PSO) for routing/scheduling.
+- **Time series:** ARIMA/Prophet/RNN/Temporal Transformers.
+- **XAI & safety:** SHAP/LIME, bias audits, drift detection.
+
+---
+
+## 1.4. Types of intelligent systems (≈3 pages)
+
+### A) By **capability level** (as in Simplilearn/Edureka)
+
+1. **Reactive Machines:** respond to current state only; no memory (e.g., Deep Blue).
+2. **Limited Memory:** use recent data for decisions (most ML systems today).
+3. **Theory of Mind** _(research target):_ model others’ mental states.
+4. **Self‑aware** _(hypothetical):_ self‑conscious agents.
+
+### B) By **scope of intelligence**
+
+- **ANI (Narrow/Weak AI):** excels at a narrow task (e.g., image classification).
+- **AGI (General AI):** human‑level generality (under research).
+- **ASI (Superintelligence):** surpasses human ability (theoretical).
+
+### C) By **agent architecture/strategy**
+
+- **Reactive** vs **Deliberative (planning)** vs **Hybrid**.
+- **Rule‑based/KBS** vs **Learning‑based (ML/DL)** vs **Neuro‑symbolic (hybrid)**.
+- **Centralized** vs **Multi‑Agent Systems (MAS)** (coordination/auctions/consensus).
+- **Cloud‑centric** vs **Edge/on‑device** deployment.
+
+**Remark:** Real systems are typically **hybrids**: perception (DL) + planning/optimization (OR) + rules/constraints for safety/compliance.
+
+---
+
+## 1.5. Applications via **Figure 7** of arXiv:2009.09083 (≈3 pages)
+
+> In lieu of direct access to Figure 7, I provide a **domain ↔ technique** matrix that mirrors common surveys. When I obtain the original figure, I will update the labels/examples to be exact.
+
+### 1) Mock‑up matrix: domains ↔ AI techniques
+
+| Domain         | Perception (CV/ASR)            | NLP/LLM                 | Forecasting (TS)        | Optimization/OR                    | RL/Control       | KBS/Graph              |
+| -------------- | ------------------------------ | ----------------------- | ----------------------- | ---------------------------------- | ---------------- | ---------------------- |
+| Healthcare     | Segmentation, lesion detection | EMR summarization, NER  | Readmission forecasting | OR for OR‑scheduling               | Dosing policies  | Medical ontologies     |
+| Finance        | Doc OCR, forgery detection     | News sentiment/NLP      | Risk/price forecasting  | Portfolio optimization             | Trading agents   | Fraud graphs           |
+| Manufacturing  | Visual defect inspection       | Natural‑language QA     | Predictive maintenance  | Job‑shop scheduling                | Parameter tuning | Process knowledge      |
+| Transportation | Object detection               | V2X language interfaces | Traffic forecasting     | Multi‑objective routing            | Signal control   | Route knowledge graphs |
+| Energy         | Fault recognition              | Incident summarization  | Load/price forecasting  | Grid optimization                  | Grid control     | Asset knowledge        |
+| Retail         | Product recognition            | Chatbots                | Demand forecasting      | Inventory optimization             | Dynamic pricing  | Product KG             |
+| Agriculture    | Pest/disease detection         | Farm logs               | Harvest forecasting     | Irrigation/fertilizer optimization | Agri‑robots      | Crop knowledge         |
+
+### 2) Reference deployment pipeline
+
+**Sensing/Data layer** → **ML/DL processing** → **Planning/Optimization** → **Action/Robotics** → **Safety/XAI monitoring**.
+Governance: data quality, audits, security, compliance.
+
+---
+
+## 1.6. NumPy, Pandas, Matplotlib, Scikit‑learn — purpose, features & examples
 
 ### 1) NumPy
 
-- **Mục đích**: mảng ND hiệu năng cao, phép toán vector hóa, tuyến tính đại số.
-- **Tính năng**: `ndarray`, broadcasting, ufuncs, random, linalg.
-- **Ví dụ**:
+- **Purpose:** high‑performance ND arrays; vectorized math; linear algebra.
+- **Features:** `ndarray`, broadcasting, ufuncs, random, `linalg`.
+- **Example:**
 
 ```python
 import numpy as np
@@ -156,9 +155,9 @@ cos_sim = np.dot(x,y) / (np.linalg.norm(x) * np.linalg.norm(y))
 
 ### 2) Pandas
 
-- **Mục đích**: thao tác dữ liệu dạng bảng (DataFrame), làm sạch, tổng hợp.
-- **Tính năng**: `read_csv`, indexing, `groupby`, `merge`, xử lý thiếu/chuỗi thời gian.
-- **Ví dụ**:
+- **Purpose:** tabular data wrangling/cleaning/aggregation.
+- **Features:** `read_csv`, indexing, `groupby`, `merge`, missing‑value & time‑series utilities.
+- **Example:**
 
 ```python
 import pandas as pd
@@ -169,9 +168,9 @@ by = df.groupby("student")["avg"].mean().reset_index()
 
 ### 3) Matplotlib
 
-- **Mục đích**: vẽ biểu đồ 2D cơ bản; tùy biến cao.
-- **Tính năng**: line/bar/scatter/hist, chú thích, style.
-- **Ví dụ**:
+- **Purpose:** 2D plotting; highly customizable.
+- **Features:** line/bar/scatter/histograms, annotations, styling.
+- **Example:**
 
 ```python
 import matplotlib.pyplot as plt
@@ -185,9 +184,9 @@ plt.show()
 
 ### 4) Scikit‑learn
 
-- **Mục đích**: thư viện ML cổ điển (supervised/unsupervised), pipeline, đánh giá.
-- **Thành phần**: `LinearRegression`, `LogisticRegression`, SVM, tree/ensemble (RF, GBM), KMeans, PCA, `train_test_split`, `Pipeline`, `GridSearchCV`.
-- **Ví dụ** (hồi quy tuyến tính):
+- **Purpose:** classical ML toolkit (supervised/unsupervised) with pipelines & evaluation.
+- **Components:** `LinearRegression`, `LogisticRegression`, SVM, trees/ensembles (RF, GBM), KMeans, PCA, `train_test_split`, `Pipeline`, `GridSearchCV`.
+- **Example (linear regression):**
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -201,14 +200,14 @@ model = LinearRegression().fit(Xtr, ytr)
 rmse = mean_squared_error(yte, model.predict(Xte), squared=False)
 ```
 
-### 5) Gợi ý chuẩn hóa trình bày & tái sử dụng mã
+### 5) Presentation & reproducibility tips
 
-- Tách **hàm xử lý dữ liệu**, **hàm huấn luyện**, **hàm vẽ**; dùng `requirements.txt`/`pipenv` để cố định phiên bản.
-- Ghi chú **seed** để tái lập (reproducibility).
-- Khi trực quan: ghi rõ **đơn vị**, **trú thích (legend)**, **nguồn dữ liệu**.
+- Separate **data processing**, **training**, and **plotting** functions; fix versions with `requirements.txt`/`pipenv`.
+- Set random **seeds** for reproducibility.
+- In visuals, always include **units**, **legends**, and **data/source notes**.
 
 ---
 
-## Kết luận ngắn
+## Short conclusion
 
-Các hệ thống thông minh kết hợp **nhận thức–học–lý luận–hành động**; triển khai thực tế thường **lai** giữa DL/ML, tối ưu và tri thức. Bộ công cụ **NumPy/Pandas/Matplotlib/Scikit‑learn** là nền tảng để hiện thực hóa pipeline từ xử lý dữ liệu đến mô hình và trực quan hóa. Với mục 1.5, em sẽ cập nhật lại khi có Figure 7 gốc để nội dung trùng khớp 100% theo sơ đồ của bài báo.
+Intelligent systems integrate **perception, learning, reasoning, and action**; practical deployments are **hybrids** of DL/ML, optimization, and knowledge. The NumPy/Pandas/Matplotlib/Scikit‑learn stack is foundational for building the data → model → visualization pipeline. For **1.5**, I will replace the mock‑up with the exact Figure 7 labels once direct access is available.
